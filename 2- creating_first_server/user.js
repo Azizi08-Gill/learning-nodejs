@@ -15,7 +15,7 @@ const server = http.createServer((req, res) => {
         res.write('<label for="male">Female:</label>');
         res.write('<input type="radio" id="female" name="gender" value="female">');
         res.write('<input type="submit" value="Submit">');
-        res.write('</from>');
+        res.write('</form>');
         res.write('</body>');
         res.write("</html>");
         return res.end();  // must write this after end of every req, res
