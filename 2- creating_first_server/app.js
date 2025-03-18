@@ -1,3 +1,6 @@
+// first of all, create a server
+// make sure server is listening
+
 import http from 'http';
 
 const server = http.createServer((req, res) => {
