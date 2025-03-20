@@ -1,8 +1,8 @@
-const sumHandler = require('./sumHandler');
+const sumHandler = require("./sumHandler");
 
-const handler = (req, res)=>{
+const handler = (req, res) => {
     console.log(req.url, req.method);
-    if(req.url === '/'){
+    if (req.url === '/') {
         res.setHeader('Content-Type', 'text/html');
         res.write(`
             <html>
@@ -14,7 +14,7 @@ const handler = (req, res)=>{
             </html>
         `);
         return res.end();
-    } else if(req.url === '/calculator') {
+    } else if (req.url === '/calculator') {
         res.setHeader('Content-Type', 'text/html');
         res.write(`
             <html>
@@ -30,10 +30,9 @@ const handler = (req, res)=>{
             </html>
         `);
         return res.end();
-    } else if(req.url === '/calculate-result' && req.method === 'POST'){
+    } else if (req.url === '/calculate-result' && req.method === 'POST') {
         return sumHandler(req, res);
-    }
-     else {
+    } else {
         res.setHeader('Content-Type', 'text/html');
         res.write(`
             <html>
@@ -46,6 +45,6 @@ const handler = (req, res)=>{
         `);
         return res.end();
     }
-}
+};
 
-export default handler;
+module.exports = handler;

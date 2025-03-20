@@ -8,7 +8,17 @@ const sumHandler = (req, res) => {
         const bodyObject = Object.fromEntries(params);
         const sum = Number(bodyObject.num1) + Number(bodyObject.num2);
         console.log(sum);
-        res.end(`The sum is: ${sum}`);
+        res.setHeader('Content-Type', 'text/html');
+        res.write(`
+            <html>
+            <head><title>Addition Calculator</title></head>
+            <body>
+            <h1>The sum is ${sum}</h1>
+            <a href='/'>Go to Home</a>
+            </body>
+            </html>
+        `);
+        return res.end();
     });
 };
 
