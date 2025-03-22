@@ -15,7 +15,6 @@ const sumHandler = (req, res) => {
             <body>
             <h1>The sum is ${sum}</h1>
             <a href='/'>Go to Home</a>
-            <a href='calculate-result'>Go to Sum</a>
             </body>
             </html>
         `);
