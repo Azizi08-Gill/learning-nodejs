@@ -43,6 +43,8 @@ app.get('/contact-us',(req, res, next)=>{
  });
 
  app.use(bodyParser.urlencoded());
+ // we can also use express.urlencoded() 
+ // it means whenever data comes, it will be automatically parsed and stored in req.body
 
     app.post("/submit-details", (req, res, next) => {
       console.log(req.body);

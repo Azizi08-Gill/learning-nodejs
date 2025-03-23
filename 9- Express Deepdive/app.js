@@ -19,7 +19,7 @@ app.use("/", (req, res) => {
     res.send("<p>Welcome to Express JS</p>");
 });
 
-app.use("/submit-details",(req, res, next) => {
+app.get("/submit-details",(req, res, next) => {
     console.log("In second middleware...", req.url, req.method);
     res.send("<p>Submit your details here</p>")
 })
