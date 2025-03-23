@@ -3,20 +3,25 @@
 // No need for http module, express will handle everything for us
 
 // External Module
-const express = require('express');
+import express from 'express';
 // Local Module
 //const requestHandler = require('./user');
 
 const app = express();
 
-app.use((req, res, next) => {
-    console.log("In first middleware...", req.url, req.method);
-    next();
-})
-
-app.use((req, res, next) => {
+app.use("/submit-details", (req, res) => {
     console.log("In second middleware...", req.url, req.method);
-    res.send("<p>Welcome to Express JS</p>")
+    res.send("<p>Submit your details here</p>");
+});
+
+app.use("/", (req, res) => {
+    console.log("In first middleware...", req.url, req.method);
+    res.send("<p>Welcome to Express JS</p>");
+});
+
+app.use("/submit-details",(req, res, next) => {
+    console.log("In second middleware...", req.url, req.method);
+    res.send("<p>Submit your details here</p>")
 })
 
 
