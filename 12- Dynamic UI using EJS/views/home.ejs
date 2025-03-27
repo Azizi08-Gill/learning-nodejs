@@ -12,6 +12,18 @@
     </header>
 
     <main>
+        <h2>Available Homes are shown below: </h2>
+        <ul>
+            <% if (registeredHomes && registeredHomes.length > 0) { %>
+            <% registeredHomes.forEach(home => { %>
+            <li>
+                <%= home.housename %>
+            </li>
+            <% }) %>
+            <% } else { %>
+            <li>No homes available at the moment.</li>
+            <% } %>
+        </ul>
         <a href="/host/add-home"> Add Home </a>
         <a href="/contact-us"> Contact Us </a>
     </main>

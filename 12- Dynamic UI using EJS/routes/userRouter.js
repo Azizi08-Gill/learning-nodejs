@@ -1,7 +1,8 @@
 const express = require('express');
 const userRouter = express.Router();
 //Local Module
-const rootDir = require('../utils/pathUtils');
+// No need for root directory anymore
+//const rootDir = require('../utils/pathUtils');
 
 // core module
 const path = require('path');
@@ -10,7 +11,7 @@ const {registeredHomes} = require('./hostRouter');
 
 userRouter.get('/', (req, res) => {
     console.log(registeredHomes);
-    res.sendFile(path.join(rootDir, 'views', 'home.html'));
+    res.render('home', {registeredHomes: registeredHomes});
 });
 
 module.exports = userRouter;
