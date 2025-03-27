@@ -1,7 +1,7 @@
 const express = require('express');
 const userRouter = require('./routes/userRouter');
 const hostRouter = require('./routes/hostRouter');
-const rootDir = require('./utils/pathUtils');
+const rootDir = require('./utils/pathUtils'); // no need for rootDir anymore
 const contactRouter = require('./routes/contactRouter');
 
 //core module
@@ -19,8 +19,8 @@ app.use("/host",hostRouter);
 app.use(contactRouter);
 
 app.use((req, res, next)=>{
-    res.status(404).sendFile(path.join(rootDir, 'views', '404.html'));
-})
+    res.status(404).render('404', {pageTitle: 'Page Not Found'});
+});
 
 const PORT = 9000;
 app.listen(PORT, () => {
