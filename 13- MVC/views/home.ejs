@@ -1,0 +1,25 @@
+<%- include ('partials/head') %>
+
+</head>
+<body>
+    <%- include ('partials/nav') %>
+    <header>
+        <h1 class="text-red-500 font-bold">Welcome to Airbnb</h1>
+    </header>
+
+    <main>
+        <h2>Available Homes are shown below: </h2>
+        <ul>
+            <% if (registeredHomes && registeredHomes.length > 0) { %>
+            <% registeredHomes.forEach(home => { %>
+            <li>
+                <%= home.housename %>
+            </li>
+            <% }) %>
+            <% } else { %>
+            <li>No homes available at the moment.</li>
+            <% } %>
+        </ul>
+    </main>
+</body>
+</html>
