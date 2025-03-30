@@ -6,11 +6,7 @@ hostRouter.get('/add-home',homeControllers.getAddHome);
 
 const registeredHomes = [];
 
-hostRouter.post('/add-home', (req, res) => {
-    console.log("Home Registration successfull for: ",req.body, req.body.housename);
-    registeredHomes.push({housename: req.body.housename});
-    res.render('homeAdded', {pageTitle: 'Home Added'});
-});
+hostRouter.post('/add-home', homeControllers.postAddHome);
 
 module.exports = hostRouter;
 module.exports.registeredHomes = registeredHomes;
